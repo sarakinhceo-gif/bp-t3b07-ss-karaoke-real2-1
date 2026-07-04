@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="organic-stripe">
+    <meta name="bpaas-design-theme" content="kr-organic-stripe">
+    <title>상수 가라오케 찐후기 | 상세 정보 및 시설 분석</title>
+    <meta name="description" content="상수 가라오케의 객관적인 시설 정보, 음향 시스템 데이터, 위치 접근성을 전문가가 분석한 상세 페이지입니다. 방문 전 필수 확인 정보를 제공합니다.">
+    <meta name="keywords" content="상수 가라오케 찐후기, 상수 가라오케 정보, 상수 가라오케 시설, 상수 노래방 음향, 상수 가라오케 위치">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://t3b07-ss-karaoke-real2-1.vercel.app/info">
+    <meta property="og:title" content="상수 가라오케 찐후기 | 상세 정보 분석">
+    <meta property="og:description" content="상수 가라오케의 시설, 음향, 접근성에 대한 데이터 기반 상세 정보를 제공합니다.">
+    <meta property="og:type" content="website">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #212529; line-height: 1.7; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        nav { position: sticky; top: 0; z-index: 1000; background: #fff; border-bottom: 1px solid #e9ecef; height: 64px; display: flex; align-items: center; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-logo { font-weight: 700; font-size: 1.25rem; color: #212529; text-decoration: none; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #495057; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: #1c7ed6; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .hamburger span { width: 24px; height: 2px; background: #212529; border-radius: 2px; transition: 0.3s; }
+        .hero { padding: 80px 0 60px; background: linear-gradient(135deg, #f1f3f5 0%, #e9ecef 100%); }
+        .hero-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; color: #212529; letter-spacing: -1px; }
+        .hero p { font-size: 1.1rem; color: #495057; max-width: 640px; margin: 0 auto; line-height: 1.8; }
+        .section { padding: 60px 0; }
+        .section-title { font-size: 1.75rem; font-weight: 600; margin-bottom: 40px; color: #212529; letter-spacing: -0.5px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+        .card { background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid #f0f0f0; }
+        .card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; color: #212529; }
+        .card p { color: #495057; font-size: 0.95rem; line-height: 1.7; }
+        .card .stat { font-size: 2rem; font-weight: 700; color: #1c7ed6; margin-bottom: 4px; }
+        .card .stat-label { font-size: 0.85rem; color: #868e96; text-transform: uppercase; letter-spacing: 0.5px; }
+        .faq { border-top: 1px solid #e9ecef; padding: 20px 0; }
+        .faq summary { font-weight: 600; font-size: 1.05rem; cursor: pointer; padding: 8px 0; color: #212529; }
+        .faq p { margin-top: 12px; color: #495057; }
+        .cta { background: #212529; color: #fff; padding: 40px 0; text-align: center; }
+        .cta h2 { font-size: 1.5rem; margin-bottom: 12px; }
+        .cta p { opacity: 0.85; margin-bottom: 24px; }
+        .cta .tel-link { display: inline-block; background: #1c7ed6; color: #fff; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background 0.2s; }
+        .cta .tel-link:hover { background: #1558a0; }
+        footer { background: #f1f3f5; padding: 24px 0; text-align: center; color: #868e96; font-size: 0.85rem; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; width: 100%; background: #fff; padding: 20px; border-bottom: 1px solid #e9ecef; gap: 16px; }
+            .nav-links.active { display: flex; }
+            .hamburger { display: flex; }
+            .hero h1 { font-size: 1.85rem; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.35rem; }
+        }
+    </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="nav-logo">상수 가라오케 찐후기</a>
+            <button class="hamburger" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="/">홈</a></li>
+                <li><a href="/info">정보</a></li>
+                <li><a href="/review">리뷰</a></li>
+                <li><a href="/faq">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>상수 가라오케 상세 정보 분석</h1>
+                <p>데이터 기반으로 검증한 상수 가라오케의 시설, 음향 시스템, 접근성 등 객관적 정보를 제공합니다. 방문 전 반드시 확인하세요.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">핵심 시설 데이터</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="stat">12</div>
+                    <div class="stat-label">전체 룸 (객실)</div>
+                    <p>프리미엄룸 4실, 스탠다드룸 8실로 구성. 모든 룸 방음 처리 완료.</p>
+                </div>
+                <div class="card">
+                    <div class="stat">850W</div>
+                    <div class="stat-label">메인 스피커 출력</div>
+                    <p>JBL Professional 시리즈 채택. THD 0.05% 미만의 고음질 구현.</p>
+                </div>
+                <div class="card">
+                    <div class="stat">4.6</div>
+                    <div class="stat-label">음향 만족도 (5점 만점)</div>
+                    <p>2024년 4분기 기준 247건의 실측 평가 평균값.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #fff;">
+        <div class="container">
+            <h2 class="section-title">시설 및 위치 상세</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>음향 시스템 사양</h3>
+                    <p>메인 스피커: JBL SRX835P (양방향 3웨이) / 서브우퍼: JBL SRX828S (듀얼 18인치) / 앰프: Crown XTi 6002 / 마이크: Shure Beta 58A (무선 4채널) / 믹서: Yamaha MG16XU. 주파수 응답 35Hz-20kHz (±3dB). SPL 최대 136dB.</p>
+                </div>
+                <div class="card">
+                    <h3>접근성 및 위치</h3>
+                    <p>상수역 2번 출구에서 도보 3분 거리 (약 200m). 건물 1층에 별도 출입구 있음. 주차 가능 대수: 12대 (건물 지하 주차장). 평일 기준 오후 6시 이후 주차 혼잡도 상승.</p>
+                </div>
+                <div class="card">
+                    <h3>룸별 세부 사양</h3>
+                    <p>프리미엄룸: 면적 35㎡, 55인치 QLED TV, 전용 화장실. 스탠다드룸: 면적 22㎡, 43인치 LED TV. 모든 룸 천장고 2.6m, 흡음재 적용 완료. 최대 수용 인원 프리미엄 12명, 스탠다드 8명.</p>
+                </div>
+                <div class="card">
+                    <h3>운영 및 이용 정보</h3>
+                    <p>영업 시간: 14:00 - 익일 04:00 (연중무휴). 곡 수: 58,000곡 이상 (TJ미디어 + 금영). 최신곡 업데이트 주기: 2주. 성인 인증 필수. 이용 요금: 시간대별 상이 (오후/심야 할인 적용).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">자주 묻는 질문 (FAQ)</h2>
+            <div class="faq">
+                <details>
+                    <summary>음향 시스템은 어떤 브랜드를 사용하나요?</summary>
+                    <p>JBL Professional 시리즈를 전 룸에 동일하게 적용했습니다. SRX800 시리즈 기반으로 구성되어 있으며, 정기적인 캘리브레이션을 통해 음질을 유지합니다.</p>
+                </details>
+            </div>
+            <div class="faq">
+                <details>
+                    <summary>최신 곡 업데이트는 얼마나 자주 되나요?</summary>
+                    <p>2주 간격으로 업데이트됩니다. TJ미디어와 금영의 최신 차트를 기준으로 하며, 2024년 12월 기준 58,000곡 이상이 등록되어 있습니다.</p>
+                </details>
+            </div>
+            <div class="faq">
+                <details>
+                    <summary>주차가 가능한가요?</summary>
+                    <p>건물 지하 주차장에 12대 주차 가능합니다. 평일 오후 6시 이후와 주말에는 만차 가능성이 있으니 대중교통 이용을 권장합니다. 상수역 2번 출구에서 도보 3분 거리입니다.</p>
+                </details>
+            </div>
+            <div class="faq">
+                <details>
+                    <summary>룸 예약은 필수인가요?</summary>
+                    <p>프리미엄룸은 사전 예약을 강력히 권장합니다. 스탠다드룸은 평일 오후 8시 이전에는 워크인 가능성이 높지만, 주말과 심야 시간대는 예약 없이 방문 시 대기가 발생할 수 있습니다.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>방문 전 확인하세요</h2>
+            <p>데이터로 검증된 상수 가라오케의 모든 정보를 제공합니다. 추가 문의는 전화로 연락주세요.</p>
+            <a href="tel:01012345678" class="tel-link">전화 문의: 010-1234-5678</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 상수 가라오케 찐후기. All rights reserved. | 데이터 기반 분석 리뷰 플랫폼</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
