@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (3/3) · t3b07-ss-karaoke-real2-1</title>
+  <meta name="description" content="t3b07-ss-karaoke-real2-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://sangsu-song-tip.link-hub.org/posts-3.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ *, *::before, *::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ html {
+ scroll-behavior: smooth;
+ }
+ body {
+ font-family: system-ui, -apple-system, 'Inter', sans-serif;
+ background-color: #fcf8f2;
+ color: #2e2522;
+ line-height: 1.6;
+ -webkit-font-smoothing: antialiased;
+ }
+ .container {
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 0 48px;
+ }
+ /* Sticky Navigation */
+ nav {
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ background-color: #fcf8f2;
+ border-bottom: 2px solid #2e2522;
+ padding: 16px 0;
+ }
+ .nav-wrapper {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 0 48px;
+ }
+ .nav-logo {
+ font-weight: 700;
+ font-size: 1.25rem;
+ letter-spacing: -0.02em;
+ color: #2e2522;
+ text-decoration: none;
+ }
+ .nav-links {
+ display: flex;
+ gap: 32px;
+ list-style: none;
+ }
+ .nav-links a {
+ text-decoration: none;
+ color: #2e2522;
+ font-weight: 500;
+ font-size: 0.95rem;
+ border-bottom: 1px solid transparent;
+ transition: border-color 0.2s ease;
+ }
+ .nav-links a:hover {
+ border-bottom-color: #7f5539;
+ }
+ .hamburger {
+ display: none;
+ flex-direction: column;
+ gap: 5px;
+ cursor: pointer;
+ background: none;
+ border: none;
+ padding: 4px;
+ }
+ .hamburger span {
+ display: block;
+ width: 24px;
+ height: 2px;
+ background-color: #2e2522;
+ transition: all 0.3s ease;
+ }
+ /* Hero Section */
+ .hero {
+ padding: 80px 0;
+ border-bottom: 2px solid #2e2522;
+ }
+ .hero-content {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 64px;
+ align-items: center;
+ }
+ .hero-text h1 {
+ font-size: 2.75rem;
+ font-weight: 700;
+ letter-spacing: -0.03em;
+ line-height: 1.1;
+ margin-bottom: 24px;
+ color: #2e2522;
+ }
+ .hero-text p {
+ font-size: 1.1rem;
+ color: #7f5539;
+ margin-bottom: 32px;
+ max-width: 400px;
+ }
+ .hero-cta {
+ display: inline-block;
+ background-color: #2e2522;
+ color: #fcf8f2;
+ padding: 14px 32px;
+ text-decoration: none;
+ font-weight: 600;
+ border: 2px solid #2e2522;
+ transition: background-color 0.2s ease, color 0.2s ease;
+ }
+ .hero-cta:hover {
+ background-color: transparent;
+ color: #2e2522;
+ }
+ .hero-visual {
+ background-color: #2e2522;
+ height: 320px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: relative;
+ overflow: hidden;
+ border: 2px solid #2e2522;
+ }
+ .hero-visual svg {
+ width: 80%;
+ height: 80%;
+ }
+ /* Section Dividers */
+ section {
+ padding: 80px 0;
+ border-bottom: 1px solid #2e2522;
+ }
+ section:last-of-type {
+ border-bottom: 2px solid #2e2522;
+ }
+ .section-title {
+ font-size: 1.75rem;
+ font-weight: 700;
+ letter-spacing: -0.02em;
+ margin-bottom: 48px;
+ color: #2e2522;
+ border-bottom: 2px solid #7f5539;
+ padding-bottom: 16px;
+ display: inline-block;
+ }
+ /* Card Grid */
+ .card-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 32px;
+ }
+ .card {
+ border: 2px solid #2e2522;
+ padding: 32px;
+ background-color: #ffffff;
+ transition: transform 0.2s ease, box-shadow 0.2s ease;
+ }
+ .card:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 4px 0 0 #2e2522;
+ }
+ .card h3 {
+ font-size: 1.1rem;
+ margin-bottom: 16px;
+ color: #7f5539;
+ }
+ .card p {
+ font-size: 0.95rem;
+ color: #2e2522;
+ }
+ .card-meta {
+ font-size: 0.85rem;
+ color: #7f5539;
+ margin-top: 16px;
+ border-top: 1px solid #2e2522;
+ padding-top: 12px;
+ display: flex;
+ justify-content: space-between;
+ }
+ .stars {
+ color: #7f5539;
+ letter-spacing: 2px;
+ }
+ /* Review Cards */
+ .review-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 32px;
+ }
+ .review-card {
+ border: 2px solid #2e2522;
+ padding: 32px;
+ background-color: #ffffff;
+ transition: box-shadow 0.2s ease;
+ }
+ .review-card:hover {
+ box-shadow: 0 4px 0 0 #2e2522;
+ }
+ .review-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 16px;
+ border-bottom: 1px solid #2e2522;
+ padding-bottom: 12px;
+ }
+ .review-author {
+ font-weight: 600;
+ color: #2e2522;
+ }
+ .review-date {
+ font-size: 0.85rem;
+ color: #7f5539;
+ }
+ .review-body {
+ font-size: 0.95rem;
+ line-height: 1.7;
+ margin-bottom: 16px;
+ }
+ .review-rating {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ font-size: 0.9rem;
+ }
+ .review-rating .stars {
+ font-size: 1.1rem;
+ }
+ /* Footer */
+ footer {
+ padding: 48px 0;
+ background-color: #2e2522;
+ color: #fcf8f2;
+ }
+ .footer-content {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 0 48px;
+ flex-wrap: wrap;
+ gap: 16px;
+ }
+ .footer-content a {
+ color: #fcf8f2;
+ text-decoration: none;
+ border-bottom: 1px solid #7f5539;
+ }
+ .footer-content a:hover {
+ border-bottom-color: #fcf8f2;
+ }
+ /* Responsive */
+ @media (max-width: 768px) {
+ .container {
+ padding: 0 24px;
+ }
+ .nav-wrapper {
+ padding: 0 24px;
+ }
+ .nav-links {
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ right: 0;
+ flex-direction: column;
+ background-color: #fcf8f2;
+ border-bottom: 2px solid #2e2522;
+ padding: 24px;
+ gap: 16px;
+ }
+ .nav-links.active {
+ display: flex;
+ }
+ .hamburger {
+ display: flex;
+ }
+ .hero-content {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ .hero-text h1 {
+ font-size: 2rem;
+ }
+ .hero-visual {
+ height: 200px;
+ }
+ .card-grid {
+ grid-template-columns: 1fr;
+ gap: 24px;
+ }
+ .review-grid {
+ grid-template-columns: 1fr;
+ gap: 24px;
+ }
+ section {
+ padding: 48px 0;
+ }
+ .section-title {
+ font-size: 1.4rem;
+ margin-bottom: 32px;
+ }
+ .footer-content {
+ flex-direction: column;
+ text-align: center;
+ padding: 0 24px;
+ }
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (3/3) · t3b07-ss-karaoke-real2-1">
+  <meta property="og:description" content="t3b07-ss-karaoke-real2-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://sangsu-song-tip.link-hub.org/posts-3.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <nav>
+ <div class="nav-wrapper">
+ <a href="/" class="nav-logo">상수 가라오케 찐후기</a>
+ <button class="hamburger" aria-label="메뉴 열기" onclick="toggleMenu()">
+ 
+ 
+ 
+ </button>
+ <ul class="nav-links" id="navLinks">
+ <li><a href="#reviews">리뷰</a></li>
+ <li><a href="#features">시설</a></li>
+ <li><a href="#contact">문의</a></li>
+ </ul>
+ </div>
+ </nav>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 41개 · 3/3 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/t3link-002-14ywp35.html">상수 가라오케 찐후기 관련 추천 정보</a>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <a class="pager__link" href="posts-2.html">2</a>
+      <span class="pager__current">3</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/3) · t3b07-ss-karaoke-real2-1</title>
+  <meta name="description" content="t3b07-ss-karaoke-real2-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://sangsu-song-tip.link-hub.org/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ *, *::before, *::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ html {
+ scroll-behavior: smooth;
+ }
+ body {
+ font-family: system-ui, -apple-system, 'Inter', sans-serif;
+ background-color: #fcf8f2;
+ color: #2e2522;
+ line-height: 1.6;
+ -webkit-font-smoothing: antialiased;
+ }
+ .container {
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 0 48px;
+ }
+ /* Sticky Navigation */
+ nav {
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ background-color: #fcf8f2;
+ border-bottom: 2px solid #2e2522;
+ padding: 16px 0;
+ }
+ .nav-wrapper {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 0 48px;
+ }
+ .nav-logo {
+ font-weight: 700;
+ font-size: 1.25rem;
+ letter-spacing: -0.02em;
+ color: #2e2522;
+ text-decoration: none;
+ }
+ .nav-links {
+ display: flex;
+ gap: 32px;
+ list-style: none;
+ }
+ .nav-links a {
+ text-decoration: none;
+ color: #2e2522;
+ font-weight: 500;
+ font-size: 0.95rem;
+ border-bottom: 1px solid transparent;
+ transition: border-color 0.2s ease;
+ }
+ .nav-links a:hover {
+ border-bottom-color: #7f5539;
+ }
+ .hamburger {
+ display: none;
+ flex-direction: column;
+ gap: 5px;
+ cursor: pointer;
+ background: none;
+ border: none;
+ padding: 4px;
+ }
+ .hamburger span {
+ display: block;
+ width: 24px;
+ height: 2px;
+ background-color: #2e2522;
+ transition: all 0.3s ease;
+ }
+ /* Hero Section */
+ .hero {
+ padding: 80px 0;
+ border-bottom: 2px solid #2e2522;
+ }
+ .hero-content {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 64px;
+ align-items: center;
+ }
+ .hero-text h1 {
+ font-size: 2.75rem;
+ font-weight: 700;
+ letter-spacing: -0.03em;
+ line-height: 1.1;
+ margin-bottom: 24px;
+ color: #2e2522;
+ }
+ .hero-text p {
+ font-size: 1.1rem;
+ color: #7f5539;
+ margin-bottom: 32px;
+ max-width: 400px;
+ }
+ .hero-cta {
+ display: inline-block;
+ background-color: #2e2522;
+ color: #fcf8f2;
+ padding: 14px 32px;
+ text-decoration: none;
+ font-weight: 600;
+ border: 2px solid #2e2522;
+ transition: background-color 0.2s ease, color 0.2s ease;
+ }
+ .hero-cta:hover {
+ background-color: transparent;
+ color: #2e2522;
+ }
+ .hero-visual {
+ background-color: #2e2522;
+ height: 320px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: relative;
+ overflow: hidden;
+ border: 2px solid #2e2522;
+ }
+ .hero-visual svg {
+ width: 80%;
+ height: 80%;
+ }
+ /* Section Dividers */
+ section {
+ padding: 80px 0;
+ border-bottom: 1px solid #2e2522;
+ }
+ section:last-of-type {
+ border-bottom: 2px solid #2e2522;
+ }
+ .section-title {
+ font-size: 1.75rem;
+ font-weight: 700;
+ letter-spacing: -0.02em;
+ margin-bottom: 48px;
+ color: #2e2522;
+ border-bottom: 2px solid #7f5539;
+ padding-bottom: 16px;
+ display: inline-block;
+ }
+ /* Card Grid */
+ .card-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 32px;
+ }
+ .card {
+ border: 2px solid #2e2522;
+ padding: 32px;
+ background-color: #ffffff;
+ transition: transform 0.2s ease, box-shadow 0.2s ease;
+ }
+ .card:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 4px 0 0 #2e2522;
+ }
+ .card h3 {
+ font-size: 1.1rem;
+ margin-bottom: 16px;
+ color: #7f5539;
+ }
+ .card p {
+ font-size: 0.95rem;
+ color: #2e2522;
+ }
+ .card-meta {
+ font-size: 0.85rem;
+ color: #7f5539;
+ margin-top: 16px;
+ border-top: 1px solid #2e2522;
+ padding-top: 12px;
+ display: flex;
+ justify-content: space-between;
+ }
+ .stars {
+ color: #7f5539;
+ letter-spacing: 2px;
+ }
+ /* Review Cards */
+ .review-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 32px;
+ }
+ .review-card {
+ border: 2px solid #2e2522;
+ padding: 32px;
+ background-color: #ffffff;
+ transition: box-shadow 0.2s ease;
+ }
+ .review-card:hover {
+ box-shadow: 0 4px 0 0 #2e2522;
+ }
+ .review-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 16px;
+ border-bottom: 1px solid #2e2522;
+ padding-bottom: 12px;
+ }
+ .review-author {
+ font-weight: 600;
+ color: #2e2522;
+ }
+ .review-date {
+ font-size: 0.85rem;
+ color: #7f5539;
+ }
+ .review-body {
+ font-size: 0.95rem;
+ line-height: 1.7;
+ margin-bottom: 16px;
+ }
+ .review-rating {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ font-size: 0.9rem;
+ }
+ .review-rating .stars {
+ font-size: 1.1rem;
+ }
+ /* Footer */
+ footer {
+ padding: 48px 0;
+ background-color: #2e2522;
+ color: #fcf8f2;
+ }
+ .footer-content {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ max-width: 960px;
+ margin: 0 auto;
+ padding: 0 48px;
+ flex-wrap: wrap;
+ gap: 16px;
+ }
+ .footer-content a {
+ color: #fcf8f2;
+ text-decoration: none;
+ border-bottom: 1px solid #7f5539;
+ }
+ .footer-content a:hover {
+ border-bottom-color: #fcf8f2;
+ }
+ /* Responsive */
+ @media (max-width: 768px) {
+ .container {
+ padding: 0 24px;
+ }
+ .nav-wrapper {
+ padding: 0 24px;
+ }
+ .nav-links {
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ right: 0;
+ flex-direction: column;
+ background-color: #fcf8f2;
+ border-bottom: 2px solid #2e2522;
+ padding: 24px;
+ gap: 16px;
+ }
+ .nav-links.active {
+ display: flex;
+ }
+ .hamburger {
+ display: flex;
+ }
+ .hero-content {
+ grid-template-columns: 1fr;
+ gap: 32px;
+ }
+ .hero-text h1 {
+ font-size: 2rem;
+ }
+ .hero-visual {
+ height: 200px;
+ }
+ .card-grid {
+ grid-template-columns: 1fr;
+ gap: 24px;
+ }
+ .review-grid {
+ grid-template-columns: 1fr;
+ gap: 24px;
+ }
+ section {
+ padding: 48px 0;
+ }
+ .section-title {
+ font-size: 1.4rem;
+ margin-bottom: 32px;
+ }
+ .footer-content {
+ flex-direction: column;
+ text-align: center;
+ padding: 0 24px;
+ }
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (2/3) · t3b07-ss-karaoke-real2-1">
+  <meta property="og:description" content="t3b07-ss-karaoke-real2-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://sangsu-song-tip.link-hub.org/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <nav>
+ <div class="nav-wrapper">
+ <a href="/" class="nav-logo">상수 가라오케 찐후기</a>
+ <button class="hamburger" aria-label="메뉴 열기" onclick="toggleMenu()">
+ 
+ 
+ 
+ </button>
+ <ul class="nav-links" id="navLinks">
+ <li><a href="#reviews">리뷰</a></li>
+ <li><a href="#features">시설</a></li>
+ <li><a href="#contact">문의</a></li>
+ </ul>
+ </div>
+ </nav>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 41개 · 2/3 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0240.html">상수 가라오케 찐후기 위치와 인덱싱 속도 체크리스트</a>
+        <p class="post-item__summary">상수 가라오케 찐후기 정보를 제대로 확보하기 위해서는 물리적인 위치 접근성과 디지털 환경의 인덱싱 속도를 동시에 고려해야 합니다. 특정 지역의 정보를 찾는 사용자에게는 해당 장소의 접근성만큼이나, </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0241.html">상수 가라오케 찐후기 구글 신뢰 지수 모발이식 솔루션</a>
+        <p class="post-item__summary">상수 가라오케 찐후기를 찾아보던 중 우연히 웹사이트의 신뢰도가 검색 결과에 미치는 영향에 대해 깊이 고민하게 되었습니다. 마치 방문객이 매장의 평판을 중요하게 생각하는 것처럼 검색 엔진 역시 도메인</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0177.html">상수 가라오케 찐후기 통해 알아본 공덕 가라오케 추천정보 초행자 주의사항</a>
+        <p class="post-item__summary">어느 평일 저녁, 지인들과 모임을 하려고 공덕 일대를 헤매던 A씨는 입구의 화려한 간판만 보고 성급하게 매장에 들어갔다가 당황한 경험이 있습니다. 상수 가라오케 찐후기 글들을 미리 읽어보며 분위기를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0178.html">상수 가라오케 찐후기 반박하는 올바른 상수 마사지 추천정보 시간대 선택</a>
+        <p class="post-item__summary">많은 사람이 상수 가라오케 찐후기 커뮤니티에서 마사지 서비스가 특정 시간대에만 집중된다는 오해를 합니다. 사실 마사지는 특정 시간대에 관계없이 본인의 신체 컨디션에 맞춰 방문하는 것이 가장 효과적입</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0179.html">상수 가라오케 찐후기 기반으로 본 망원 노래방 추천정보 안내</a>
+        <p class="post-item__summary">쾌적한 공간과 최신 음향 설비, 그리고 접근성이라는 삼박자가 맞아떨어지는 장소를 찾는 것은 즐거운 모임을 위한 필수 조건입니다. 상수 가라오케 찐후기 내용을 분석해 보면 많은 이용객이 음향의 선명도</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0180.html">상수 가라오케 찐후기 보고 궁금해진 홍대 노래방 추천정보 기준</a>
+        <p class="post-item__summary">여러분은 노래방을 선택하실 때 가장 중요하게 생각하는 기준이 무엇인가요. 상수 가라오케 찐후기 내용을 읽어보다 보면 수많은 업체 중 어디를 선택해야 할지 고민하는 분들이 많다는 사실을 알게 됩니다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0181.html">상수 가라오케 찐후기 검증하는 공덕 셔츠룸 추천정보 탐색법</a>
+        <p class="post-item__summary">셔츠룸을 방문하기 전, 검증되지 않은 정보로 인해 낭패를 보는 일을 방지하려면 체계적인 탐색 단계가 필요합니다. 상수 가라오케 찐후기 사례를 타산지석 삼아, 이제부터 신뢰할 수 있는 정보를 선별하는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0182.html">상수 가라오케 찐후기 기반으로 분석하는 연남 유흥 추천정보 가이드</a>
+        <p class="post-item__summary">상수 가라오케 찐후기를 찾아보는 방문객들은 대개 접근성과 분위기를 동시에 고려하는 경향이 있습니다. 연남 일대는 골목마다 독특한 매력을 지닌 업소가 많아 선택의 폭이 넓은 것이 특징입니다. 각 장소</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0183.html">상수 가라오케 찐후기 참고하여 마곡 가라오케 추천정보 실패 없이 고르는 법</a>
+        <p class="post-item__summary">많은 이들이 상수 가라오케 찐후기를 살피며 자신의 스타일과 맞는 공간을 찾으려 노력합니다. 하지만 막상 마곡 지역으로 이동했을 때 어디서부터 시작해야 할지 몰라 당황하는 경우가 많습니다. 특히 예약</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0184.html">상수 가라오케 찐후기 분석을 통한 마곡 유흥 추천정보 필수 체크리스트</a>
+        <p class="post-item__summary">상수 가라오케 찐후기를 면밀히 검토해 본 경험이 있는 분들은 장소 선택의 기준이 얼마나 중요한지 잘 압니다. 마곡 지역의 유흥 시설을 방문할 계획이라면 사전에 몇 가지 필수 항목을 점검해야 합니다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0185.html">상수 가라오케 찐후기 확인하고 합정 노래방 추천정보 알아보자</a>
+        <p class="post-item__summary">오랜만에 만난 친구들과 상수역 인근에서 저녁 식사를 마친 뒤 자연스럽게 흥겨운 장소를 찾게 되었습니다. 상수 가라오케 찐후기 검색 결과를 살피다 보니 생각보다 고려할 요소가 많아 당황스러운 경우가 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0186.html">상수 가라오케 찐후기 찾다가 발견한 연남 클럽 추천정보 정리</a>
+        <p class="post-item__summary">클럽 방문은 무조건 밤늦은 시간에 시작해야 한다는 생각은 일종의 오해일지도 모릅니다. 상수 가라오케 찐후기 정보를 찾던 사람들도 연남 지역의 분위기를 확인하며 저녁 이른 시간부터 움직이는 편이 낫다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0187.html">상수 가라오케 찐후기 확인 후 살펴보는 합정 셔츠룸 추천정보</a>
+        <p class="post-item__summary">셔츠룸을 방문하기 위해 필요한 충족 조건은 생각보다 구체적이고 체계적이어야 합니다. 상수 가라오케 찐후기 관련 정보를 검색하던 분들 중에서도 보다 전문적인 서비스를 선호하는 이들은 셔츠룸을 대안으로</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/interview-001-14ywp35.html">상수 가라오케 찬찬 후기</a>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">상수 가라오케 찐후기 안내</a>
+        <p class="post-item__summary">상수 지역 가라오케를 찾는 이들에게는 적절한 장소 선정이 중요합니다. 이 정보는 특정 업소를 홍보하거나 검증된 리뷰를 제공하는 목적이 아니며, 단지 일반적인 안내와 관련 자료의 위치를 알려드리는 데</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">상수 가라오케 찐후기</a>
+        <p class="post-item__summary">상수 지역에서 가라오케를 경험해 본 이들에게 제공되는 실제적인 정보들은 상당히 많은 관심을 끌고 있습니다. 다양한 노래방에서 제공하는 음질과 시스템, 공간의 쾌적함은 방문자가 직접 체감해야만 평가할</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">상수 가라오케 찐후기 관련 정보</a>
+        <p class="post-item__summary">상수 지역에서 가라오케를 즐기는 방법은 다양하며, 노래방 환경을 미리 파악하려는 경우 실제 방문자들의 생생한 경험을 참고하는 것이 유용합니다. 노래방 선택 시 가격, 공간, 반주 구성 등 여러 요소</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">상수 가라오케 기본 상식과 용어 해설</a>
+        <p class="post-item__summary">가라오케 업소를 찾는 분들에게는 먼저 알아두면 좋은 기본 상식이 있습니다. '상수'라는 지명은 지역을 나타내는 고유 명사이며, 이곳의 가라오케 업소들은 주로 노래 취향과 노래 방식에 따라 이용 목적</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">상수 가라오케 찐후기: 요금 및 선택 가이드</a>
+        <p class="post-item__summary">상수 지역의 가라오케를 선택할 때 가장 먼저 고려해야 할 요소는 전반적인 요금 체계와 공간의 편의성입니다. 방문 전 여러 업소의 가격을 미리 알아두면 예산에 맞는 최적의 곳을 찾을 수 있으며, 특히</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-001-atkagn.html">...</a>
+        <p class="post-item__summary">상수 지역에서 가라오케를 처음 알아보는 경우, 예약 방법이나 비용이 정해지는 방식이 궁금할 수 있다. 이 페이지에서는 방문 전 확인해두면 도움이 되는 이용 절차와 지역 정보를 정리했다.</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+      <a class="pager__link" href="posts-3.html">3</a>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
